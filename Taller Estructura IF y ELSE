@@ -1,0 +1,103 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main(){
+    float nota;
+    int asistencia;
+    int categoria;
+
+    cout << fixed << setprecision(1);
+    cout << "CLASIFICADOR DE DESEMPEÑO ACADEMICO" << endl << endl;
+
+    cout << "Ingrese la nota definitiva (0.0 - 5.0): ";
+    cin >> nota;
+
+    cout << "Ingrese el porcentaje de asistencia(0 - 100): ";
+    cin >>asistencia;
+    cout << endl;
+
+    if (nota < 0.0 or nota > 5.0){
+        cout<<"ERROR EN LA NOTA(0.0 1 5.0)"<< endl;
+        return 1;
+
+    }
+
+    if (asistencia < 0 or asistencia > 100){
+        cout<<"ERROR EN LA ASISTENCIA(0 A 100)"<< endl;
+        return 1;
+
+    }
+
+
+    if (nota >= 4.6){
+        categoria = 1;
+    }   else if(nota >= 4.0){
+        categoria = 2;
+    }   else if(nota >= 3.0){
+        categoria = 3;
+    }   else    {
+        categoria = 4;
+    }
+
+
+    bool aprobado;
+
+    if (nota >= 3.0){
+        if (asistencia >= 70){
+            aprobado = true;
+        }   else {
+            aprobado = false;
+        }
+    }
+
+
+
+    cout << "Nota registrada : "<< nota << endl;
+    cout << "Asistencia : "<< asistencia << "%" << endl;
+    cout << "Desempeño : ";
+
+
+    switch(categoria){
+        case 1:
+        cout << "Superior "<< endl;
+        cout << "Excelente trabajo"<< endl;
+        break;
+
+        case 2:
+        cout << "ALTO "<< endl;
+        cout << "Excelente trabajo"<< endl;
+        break;
+
+        case 3:
+        cout << "BASICO "<< endl;
+        cout << "Reforzar"<< endl;
+        break;
+
+        case 4:
+        cout << "BAJO "<< endl;
+        cout << "Debe presentar plan de mejoramiento"<< endl;
+        break;
+
+        default:
+        cout << "Sin clasificar" << endl;
+
+
+
+    }
+
+
+
+
+    if (aprobado){
+        cout << "Estado             :APROBADO"<< endl;
+    }   else {
+        cout << "Estado             :REPROBADO"<< endl;
+    }
+
+
+    return 0;
+
+
+
+}
